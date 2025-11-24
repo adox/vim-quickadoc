@@ -21,21 +21,18 @@ A minimal Neovim plugin for creating timestamped AsciiDoc notes and searching th
 
 
 === Lazy.nvim
-```lua
-{
-"adox/vim-quickadoc",
-config = function()
-require("quickadoc").setup({
-dir = "~/github/notes",
-header_template = "= Log {timestamp}
-:revdate: {date}
 
-
-",
-})
-end,
-}
-```
+----
+  {
+    "adox/vim-quickadoc",
+    config = function()
+      require("quickadoc").setup({
+        dir = "~/notes",          -- where to create files
+        header_template = "= Log {timestamp}\n:revdate: {date}\n\n",
+      })
+    end,
+  },
+----
 
 
 == Default Keymaps
