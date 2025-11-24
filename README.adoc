@@ -1,0 +1,81 @@
+= quickadoc.nvim
+:revdate: 2025-11-24
+:toc:
+:icons: none
+
+
+== Overview
+A minimal Neovim plugin for creating timestamped AsciiDoc notes and searching them quickly via FZF or Telescope.
+
+
+== Features
+* Create new `.adoc` notes with a single keymap (`<leader>en` by default)
+* Notes are automatically named like `log-YYYYMMDD-HHMMSS.adoc`
+* Adds headers with current timestamp and revision date
+* Jump straight to the end of newly created notes
+* FZF/Telescope integration for searching notes (`<leader>fn`)
+* Works with either *fzf.vim* (`:Rg`) or *Telescope*
+
+
+== Installation
+
+
+=== Lazy.nvim
+```lua
+{
+"adox/vim-quickadoc",
+config = function()
+require("quickadoc").setup({
+dir = "~/github/notes",
+header_template = "= Log {timestamp}
+:revdate: {date}
+
+
+",
+})
+end,
+}
+```
+
+
+== Default Keymaps
+| Key | Action |
+| --- | --- |
+| `<leader>en` | Create new AsciiDoc note |
+| `<leader>fn` | Search inside notes (FZF/Telescope) |
+
+
+== Commands
+* `:AdocLog` – Create a new timestamped AsciiDoc note.
+
+
+== Configuration Options
+| Option | Default | Description |
+| --- | --- | --- |
+| `dir` | `~/github/notes` | Target directory for notes |
+| `enable_default_mapping` | `true` | Whether to install default keymaps |
+| `create_map` | `<leader>en` | Mapping for creating new notes |
+| `find_map` | `<leader>fn` | Mapping for searching notes |
+| `header_template` | `= Log {timestamp}
+:revdate: {date}
+
+
+` | Header text written to each note |
+| `open_cmd` | `edit` | How to open new notes (edit/tabedit/vnew/split) |
+| `ripgrep_args` | `{ "--hidden", "--glob", "!**/.git/*" }` | Extra arguments passed to ripgrep |
+
+
+== Example Workflow
+1. Press `<leader>en` to create a new note.
+2. Start typing your log or idea.
+3. Press `<leader>fn` to fuzzy search across all notes.
+
+
+== Requirements
+* Neovim ≥ 0.8
+* `fzf.vim` or `telescope.nvim`
+* `ripgrep` installed and on `$PATH`
+
+
+== License
+MIT
