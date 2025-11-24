@@ -22,6 +22,7 @@ A minimal Neovim plugin for creating timestamped AsciiDoc notes and searching th
 
 === Lazy.nvim
 
+[,lua]
 ----
   {
     "adox/vim-quickadoc",
@@ -36,10 +37,14 @@ A minimal Neovim plugin for creating timestamped AsciiDoc notes and searching th
 
 
 == Default Keymaps
-| Key | Action |
-| --- | --- |
-| `<leader>en` | Create new AsciiDoc note |
-| `<leader>fn` | Search inside notes (FZF/Telescope) |
+[cols="1,2", options="header"]
+|===
+| Key | Action
+
+
+| `<leader>en` | Create new AsciiDoc note
+| `<leader>fn` | Search inside notes (FZF/Telescope)
+|===
 
 
 == Commands
@@ -47,20 +52,18 @@ A minimal Neovim plugin for creating timestamped AsciiDoc notes and searching th
 
 
 == Configuration Options
-| Option | Default | Description |
-| --- | --- | --- |
-| `dir` | `~/github/notes` | Target directory for notes |
-| `enable_default_mapping` | `true` | Whether to install default keymaps |
-| `create_map` | `<leader>en` | Mapping for creating new notes |
-| `find_map` | `<leader>fn` | Mapping for searching notes |
-| `header_template` | `= Log {timestamp}
-:revdate: {date}
+[cols="1,1,3", options="header"]
+|===
+| Option | Default | Description
 
-
-` | Header text written to each note |
-| `open_cmd` | `edit` | How to open new notes (edit/tabedit/vnew/split) |
-| `ripgrep_args` | `{ "--hidden", "--glob", "!**/.git/*" }` | Extra arguments passed to ripgrep |
-
+| `dir` | `~/github/notes` | Target directory for notes
+| `enable_default_mapping` | `true` | Whether to install default keymaps
+| `create_map` | `<leader>en` | Mapping for creating new notes
+| `find_map` | `<leader>fn` | Mapping for searching notes
+| `header_template` | `= Log {timestamp}\n:revdate: {date}\n\n` | Header text written to each note
+| `open_cmd` | `edit` | How to open new notes (edit/tabedit/vnew/split)
+| `ripgrep_args` | `{ "--hidden", "--glob", "!**/.git/*" }` | Extra arguments passed to ripgrep
+|===
 
 == Example Workflow
 1. Press `<leader>en` to create a new note.
